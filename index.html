@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Clock App</title>
+</head>
+<body>
+    <h1>Clock App</h1>
+    <p id="time"></p>
+    
+    <script>
+        function getTime() {
+            fetch('/time')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('time').textContent = data.time;
+                });
+        }
+
+        // update time every second
+        setInterval(getTime, 1000);
+    </script>
+</body>
+</html>
+
